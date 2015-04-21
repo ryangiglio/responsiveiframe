@@ -110,9 +110,23 @@ if (typeof jQuery !== 'undefined') {
     if (window.addEventListener) {
       window.addEventListener("load", self.messageParent, false);
       window.addEventListener("resize", self.messageParent, false);
+      window.addEventListener("click", function () {
+
+        setTimeout( function () {
+          self.messageParent();
+        }, 500);
+
+      }, false);
     } else if (window.attachEvent) {
       window.attachEvent("onload", self.messageParent);
       window.attachEvent("onresize", self.messageParent);
+      window.attachEvent("onclick", function () {
+
+        setTimeout( function () {
+          self.messageParent();
+        }, 500);
+
+      });
     }
   };
 
